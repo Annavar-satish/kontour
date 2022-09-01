@@ -1,0 +1,13 @@
+name: 'Setup Chrome'
+description: 'Install and setup Google Chrome and Chromium'
+author: "Shin'ya Ueoka"
+inputs:
+  chrome-version:
+    description: |-
+      The Google Chrome/Chromium version to install and use.
+    default: latest
+    required: false
+
+runs:
+  using: 'node12'
+  main: 'index.js'
