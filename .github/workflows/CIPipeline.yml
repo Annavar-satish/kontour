@@ -41,6 +41,8 @@ jobs:
       - name: Prepare the application
         run: |
           php -r "file_exists('.env') || copy('.env.example', '.env');"
+          whereis artisan
+          chmod +x artisan
           php artisan key:generate
       - name: Clear Config
         run: php artisan config:clear
