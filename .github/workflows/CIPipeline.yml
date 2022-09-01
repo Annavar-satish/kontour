@@ -1,4 +1,4 @@
-name: Laravel
+name: CI
 
 on:
   push:
@@ -23,11 +23,13 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/database.sqlite
+        touch database/database.mysql
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_CONNECTION: mysql
+        DB_HOST: mysql
+        DB_PORT: 3306
+        DB_DATABASE: database/database.mysql
       run: vendor/bin/phpunit
     - name: Execute test via PHPCS
       run: vendor/bin/phpcs
