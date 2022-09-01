@@ -1,6 +1,22 @@
 # GitHub Action for Laravel
 name: Testing Laravel
-on: [push, pull_request]
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      browser:
+        type: choice
+        description: Which browser to test
+        required: true
+        default: chrome
+        options:
+          - chrome
+          - firefox
+          - edge
+
 jobs:
   laravel:
     name: Laravel (PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }})
@@ -43,8 +59,16 @@ jobs:
 
       - name: Prepare the application
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        
+      - name: Create Database
+        run: |
+           mkdir -p database
+           touch database/database.sqlite        
 
       - name: Test with phpunit
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit --coverage-text
       - name: Test with phpcs
         run: vendor/bin/phpcs
