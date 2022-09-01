@@ -5,6 +5,17 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      browser:
+        type: choice
+        description: Which browser to test
+        required: true
+        default: chrome
+        options:
+          - chrome
+          - firefox
+          - edge   
 
 jobs:
   laravel-tests:
