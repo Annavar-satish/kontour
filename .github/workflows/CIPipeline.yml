@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: browser-actions/setup-chrome@latest
+    - run: chrome --version
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-versions: ('7.3','7.4')
