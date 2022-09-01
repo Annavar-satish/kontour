@@ -39,14 +39,10 @@ jobs:
         run: |
           composer install --no-progress --prefer-dist --optimize-autoloader
           composer update
+          composer fund
 
       - name: Prepare the application
-        run: |
-          php -r "file_exists('.env') || copy('.env.example', '.env');"
-          php artisan migrate
-          php artisan serve
-          chmod +x artisan
-          php artisan key:generate
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Clear Config
         run: php artisan config:clear
 
