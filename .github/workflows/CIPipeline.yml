@@ -43,7 +43,10 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Prepare Laravel Application
-      run: cp .env.ci .env
+      run: |
+        cp .env.ci .env
+        php artisan dusk
+
 
     - name: Run Testsuite
       run: vendor/bin/phpunit tests/
