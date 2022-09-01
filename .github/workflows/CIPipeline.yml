@@ -28,7 +28,6 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-        ARGS: "-av"
       run: vendor/bin/phpunit
     - name: Execute test via PHPCS
       run: vendor/bin/phpcs
