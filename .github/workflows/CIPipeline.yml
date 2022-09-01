@@ -27,12 +27,10 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
 
-    - name: add chrome version for php
-      run: php artisan dusk:chrome-driver 73
+    - name: Execute tests (Unit and Feature tests) via PHPCS
+      run: vendor/bin/phpcs
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
-    - name: Execute tests (Unit and Feature tests) via PHPCS
-      run: vendor/bin/phpcs      
+      run: vendor/bin/phpunit      
