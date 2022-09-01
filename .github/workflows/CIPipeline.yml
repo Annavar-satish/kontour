@@ -30,6 +30,7 @@ jobs:
         DB_HOST: mysql
         DB_PORT: 3306
         DB_DATABASE: database/database.mysql
+        ARGS: "-av"
       run: vendor/bin/phpunit
     - name: Execute test via PHPCS
       run: vendor/bin/phpcs
