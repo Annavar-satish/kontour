@@ -20,10 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install with version '73'
-        uses: ./Tests/Browser/
+        uses: ./dist/
         with:
           chrome-version: 73
-      - if: runner.os == 'Ubuntu'
+      - if: runner.os == 'Linux'
         run: chrome --version        
       # Docs: https://github.com/shivammathur/setup-php
       - name: Setup PHP
