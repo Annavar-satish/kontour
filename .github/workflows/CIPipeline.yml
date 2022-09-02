@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install with version '73'
-        uses: browser-actions/setup-chrome@v73
+        uses: browser-actions/setup-chrome@v2
         with:
           chrome-version: 73
       - if: runner.os == 'Linux'
