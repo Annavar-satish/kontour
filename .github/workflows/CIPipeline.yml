@@ -54,6 +54,12 @@ jobs:
         run: |
            mkdir -p database
            touch database/database.sqlite
+          
+      - name: condition
+        run: |
+           if [[ $COVERAGE == "" ]]; then
+           phpenv config-rm xdebug.ini
+           fi
       - name: run the before script
         run: |
            composer config discard-changes true
