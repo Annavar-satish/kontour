@@ -19,8 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install with version 'latest'
-        uses: browser-actions/setup-chrome@latest
+      - name: Install with version 'Stable'
+        uses: browser-actions/setup-chrome@stable
      
       # Docs: https://github.com/shivammathur/setup-php
       - name: Setup PHP
@@ -55,11 +55,7 @@ jobs:
            mkdir -p database
            touch database/database.sqlite
           
-      - name: condition
-        run: |
-           if [[ $COVERAGE == "" ]]; then
-           phpenv config-rm xdebug.ini
-           fi
+
       - name: run the before script
         run: |
            composer config discard-changes true
