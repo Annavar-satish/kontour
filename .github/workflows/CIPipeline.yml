@@ -19,8 +19,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install with version 'Stable'
-        uses: browser-actions/setup-chrome@stable
+      - name: Install with version 'dev'
+        uses: browser-actions/setup-chrome@dev
+      - run: chrome --version
      
       # Docs: https://github.com/shivammathur/setup-php
       - name: Setup PHP
