@@ -22,8 +22,8 @@ jobs:
       - name: Install with version '73'
         uses: browser-actions/setup-chrome@latest
         with:
-          chrome-version: 73
-      - if: runner.os == 'Linux'
+          chrome-version: 70
+      - if: runner.os == 'ubuntu'
         run: chrome --version        
       # Docs: https://github.com/shivammathur/setup-php
       - name: Setup PHP
