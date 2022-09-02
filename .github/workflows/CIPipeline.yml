@@ -19,10 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install with version '733683'
+      - name: Install with version 'latest'
         uses: browser-actions/setup-chrome@latest
-        with:
-          chrome-version: 733683
      
       # Docs: https://github.com/shivammathur/setup-php
       - name: Setup PHP
