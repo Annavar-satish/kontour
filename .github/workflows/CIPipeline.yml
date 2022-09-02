@@ -19,10 +19,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install with version '73'
+      - name: Install with version '733683'
         uses: browser-actions/setup-chrome@latest
-      - if: runner.os == 'ubuntu'
-        run: chrome --version        
+        with:
+          chrome-version: 733683
+     
       # Docs: https://github.com/shivammathur/setup-php
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
