@@ -49,9 +49,6 @@ jobs:
           composer install --no-progress --prefer-dist --optimize-autoloader
           composer update
           composer fund
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
-
         
       - name: Create Database
         run: |
