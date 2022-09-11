@@ -25,8 +25,13 @@ return [
 
     'title' => 'Kontour ' . env('APP_NAME') . ' ' . env('APP_ENV'),
     'key' => '10101010101010101010101010101010',
-    'config'=> set('database.default', 'sqlite');
-    'config'=> set('session.driver', 'file'):    
+            'config' => [
+            'database.default' => 'sqlite',
+            'session.driver' => 'file',
+            'database' => env('SQLITE_DB_NAME', database_path('database.sqlite')),
+            'prefix' => '',
+        ],
+
 
     /*
     |--------------------------------------------------------------------------
